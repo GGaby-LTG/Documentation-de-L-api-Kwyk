@@ -12,7 +12,7 @@ Voilà un documentation pour l'API de l'app de physique et de mathématiques Kwy
         csrf_token = soup.find('input', {'name': 'csrfmiddlewaretoken'})['value']
 
 
-"""
+"
     Login :
     
         Url : https://www.kwyk.fr/accounts/login/
@@ -43,16 +43,16 @@ Voilà un documentation pour l'API de l'app de physique et de mathématiques Kwy
          }   
 
     
-"""
+"
         UUID :
             L'ID est necessaire pour acceder aux informations de l'élève. Elle est assé difficile à obtenir car il faut
             la scraper d'une page (n'importe laquelle).
 
             Pour la page devoir il faut scraper:
                 <li><a class="header_button" href="/bilan/Classe/UUID/student/">Bilan</a></li>
-            
+   "   
             voila un example python:
-"""
+
             response = session.post(url,headers=headers)
             soup = BeautifulSoup(response.text, 'html.parser')
             a_tag = soup.findAll( class_='header_button', href=True)
@@ -63,7 +63,7 @@ Voilà un documentation pour l'API de l'app de physique et de mathématiques Kwy
                         number = href.split("/")[3]
                         return number
 
-
+"
             Ce nombre est utilisé pour les URLs des pages spécifiques à l'utilisateur et l'immense majorité des pages spécifiques à l'API
             il est permanent et peut être stocké et réutilisé.
 

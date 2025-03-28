@@ -12,8 +12,7 @@ Voilà un documentation pour l'API de l'app de physique et de mathématiques Kwy
         csrf_token = soup.find('input', {'name': 'csrfmiddlewaretoken'})['value']
 
 
-"
-    Login :
+" Login :
     
         Url : https://www.kwyk.fr/accounts/login/
 
@@ -28,12 +27,10 @@ Voilà un documentation pour l'API de l'app de physique et de mathématiques Kwy
             'password': 'mot de passe',
             'csrfmiddlewaretoken': csrf_token,
         }"
-"""
-        Il faudra récupérer un cookie dans la réponse, ce cookie est utilisé pour toute connection à un page non publique du site, il marche pendant
+"   Il faudra récupérer un cookie dans la réponse, ce cookie est utilisé pour toute connection à un page non publique du site, il marche pendant
         plusieurs heures avant de le refresh. Toute nouvelle connection crée un nouveau cookie et invalide l'ancien.
 
-"""
-    Les headers sont maintenant:
+" Les headers sont maintenant:
     
          {
             Content-Type': 'application/x-www-form-urlencoded',
@@ -50,8 +47,7 @@ Voilà un documentation pour l'API de l'app de physique et de mathématiques Kwy
 
             Pour la page devoir il faut scraper:
                 <li><a class="header_button" href="/bilan/Classe/UUID/student/">Bilan</a></li>
-   "   
-            voila un example python:
+   "    voila un example python:
 
             response = session.post(url,headers=headers)
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -63,7 +59,6 @@ Voilà un documentation pour l'API de l'app de physique et de mathématiques Kwy
                         number = href.split("/")[3]
                         return number
 
-"
-            Ce nombre est utilisé pour les URLs des pages spécifiques à l'utilisateur et l'immense majorité des pages spécifiques à l'API
+"           Ce nombre est utilisé pour les URLs des pages spécifiques à l'utilisateur et l'immense majorité des pages spécifiques à l'API
             il est permanent et peut être stocké et réutilisé.
 
